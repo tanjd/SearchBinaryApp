@@ -28,7 +28,10 @@ class MainActivity : AppCompatActivity() {
         numOfGuesses++
 //        numOfGuessText.text = "$numOfGuesses"
 
-        if (searchNumber == randomNum) {
+        if(searchNumber<0 || searchNumber>100) {
+            returnMessage = "The number must be between 0 and 100, you took $numOfGuesses try/tries"
+        }
+        else if (searchNumber == randomNum) {
             returnMessage = "Congrats! You've won with the guess $searchNumber, you took $numOfGuesses try/tries"
             newGame()
 
@@ -40,7 +43,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        Toast.makeText(this, returnMessage, Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, returnMessage, Toast.LENGTH_LONG).show()
         numberText.text = ""
     }
 
